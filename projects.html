@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#25282a" />
+    <meta name="description" content="Explore Halamesk residential, commercial, hospitality, workplace, healthcare, and public projects." />
+    <meta property="og:title" content="Projects — Halamesk" />
+    <meta property="og:description" content="Selected spaces shaped through interior design, architecture, execution, and turnkey delivery." />
+    <meta property="og:image" content="/assets/project-courtyard.webp" />
+    <title>Projects — Halamesk</title>
+  </head>
+  <body class="projects-page">
+    <div class="loader" aria-hidden="true">
+      <div class="loader__word">PROJECTS</div>
+      <div class="loader__meta">
+        <span>LOADING SELECTED WORK</span>
+        <span class="loader__count">000</span>
+        <span>PERCENT</span>
+      </div>
+      <div class="loader__line"><span></span></div>
+    </div>
+
+    <div class="cursor" aria-hidden="true"><span>VIEW</span></div>
+    <div class="page-progress" aria-hidden="true"><span></span></div>
+
+    <header class="site-header" data-theme="light">
+      <a class="brand" href="/" aria-label="Halamesk home">
+        <img src="/assets/halamesk-logo-white.png" alt="Halamesk" />
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/projects.html" aria-current="page">Projects</a>
+      </nav>
+      <a class="header-cta" href="/#contact"><span>Start a project</span><i></i></a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true">
+      <nav>
+        <a href="/about.html">About <span>01</span></a>
+        <a href="/services.html">Services <span>02</span></a>
+        <a href="/projects.html">Projects <span>03</span></a>
+        <a href="/#contact">Contact <span>04</span></a>
+      </nav>
+      <p>Riyadh, Saudi Arabia<br />info@halamesk.com</p>
+    </div>
+
+    <main id="top">
+      <section class="projects-hero" aria-label="Selected Halamesk projects">
+        <div class="projects-hero__media">
+          <img src="/assets/project-courtyard.webp" alt="Courtyard residence designed by Halamesk" fetchpriority="high" decoding="async" />
+          <div class="projects-hero__shade"></div>
+        </div>
+        <div class="projects-hero__topline">
+          <span>Projects / Selected work</span>
+          <span>Riyadh — Saudi Arabia</span>
+        </div>
+        <div class="projects-hero__copy">
+          <p class="eyebrow">Spaces for people</p>
+          <h1 aria-label="Places built to endure">
+            <span><i>Places built</i></span>
+            <span class="projects-hero__line--indent"><i>to endure.</i></span>
+          </h1>
+        </div>
+        <p class="projects-hero__arabic" lang="ar" dir="rtl">مساحات تحمل رؤية واضحة</p>
+        <a class="projects-hero__scroll" href="#archive"><span>Explore the archive</span><i>↓</i></a>
+      </section>
+
+      <section class="projects-intro section-pad">
+        <div class="section-index">
+          <span>01</span><span>Selected work</span><span lang="ar" dir="rtl">مشاريع مختارة</span>
+        </div>
+        <div class="projects-intro__grid">
+          <h2 class="projects-display split-reveal">Different needs. One standard of care.</h2>
+          <div class="projects-intro__copy">
+            <p>From private residences to corporate workplaces and public environments, every project is shaped around function, identity and experience.</p>
+            <p>Filter the archive by environment. Each project also shows the services carried by Halamesk from design through delivery.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-archive section-pad" id="archive">
+        <div class="project-filter" aria-label="Filter projects by environment">
+          <div class="project-filter__label"><span>02</span><span>Filter projects</span></div>
+          <div class="project-filter__buttons" role="group" aria-label="Project filters">
+            <button type="button" data-filter="all" aria-pressed="true">All <sup>11</sup></button>
+            <button type="button" data-filter="residential" aria-pressed="false">Residential <sup>05</sup></button>
+            <button type="button" data-filter="commercial" aria-pressed="false">Commercial <sup>06</sup></button>
+            <button type="button" data-filter="hospitality" aria-pressed="false">Hospitality <sup>01</sup></button>
+            <button type="button" data-filter="workplace" aria-pressed="false">Workplace <sup>03</sup></button>
+            <button type="button" data-filter="public" aria-pressed="false">Public <sup>03</sup></button>
+          </div>
+          <p class="project-filter__result" aria-live="polite"><span>11</span> projects</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="archive-card archive-card--wide" data-categories="hospitality residential">
+            <div class="archive-card__media"><img src="/assets/project-resort.webp" alt="Private resort with landscaped arrival court" /></div>
+            <div class="archive-card__meta">
+              <span>01</span><div><h2>Private Resort</h2><p>Hospitality · Riyadh</p></div><small>Architecture · Interior · Execution</small>
+            </div>
+          </article>
+
+          <article class="archive-card archive-card--tall archive-card--arch" data-categories="residential">
+            <div class="archive-card__media"><img src="/assets/project-guest.webp" alt="Private guest house dining room" loading="lazy" decoding="async" /></div>
+            <div class="archive-card__meta">
+              <span>02</span><div><h2>Private Guest House</h2><p>Residential · Riyadh</p></div><small>Interior Design</small>
+            </div>
+          </article>
+
+          <article class="archive-card" data-categories="residential">
+            <div class="archive-card__media"><img src="/assets/project-villa.webp" alt="Double-height private villa living room" /></div>
+            <div class="archive-card__meta">
+              <span>03</span><div><h2>Private Villa</h2><p>Residential · Riyadh</p></div><small>Interior · Execution</small>
+            </div>
+          </article>
+
+          <article class="archive-card archive-card--portrait" data-categories="residential">
+            <div class="archive-card__media"><img src="/assets/project-alaqiq.webp" alt="Alaqiq private villa sitting room" /></div>
+            <div class="archive-card__meta">
+              <span>04</span><div><h2>Alaqiq Villa</h2><p>Residential · Alaqiq</p></div><small>Design · Execution</small>
+            </div>
+          </article>
+
+          <article class="archive-card archive-card--wide" data-categories="residential">
+            <div class="archive-card__media"><img src="/assets/project-courtyard.webp" alt="Contemporary private courtyard villa" /></div>
+            <div class="archive-card__meta">
+              <span>05</span><div><h2>Courtyard Villa</h2><p>Residential · Riyadh</p></div><small>Architecture · Interior</small>
+            </div>
+          </article>
+
+          <article class="archive-card" data-categories="commercial workplace">
+            <div class="archive-card__media"><img src="/assets/project-saptco-hq.webp" alt="SAPTCO Headquarters executive spaces" /></div>
+            <div class="archive-card__meta">
+              <span>06</span><div><h2>SAPTCO Headquarters</h2><p>Workplace · Riyadh</p></div><small>Design · Execution · Supervision</small>
+            </div>
+          </article>
+
+          <article class="archive-card archive-card--wide" data-categories="commercial workplace">
+            <div class="archive-card__media"><img src="/assets/project-employee-lounge.webp" alt="SAPTCO employee lounge with game and coffee zones" /></div>
+            <div class="archive-card__meta">
+              <span>07</span><div><h2>SAPTCO Employee Lounge</h2><p>Workplace · Riyadh</p></div><small>Interior Design</small>
+            </div>
+          </article>
+
+          <article class="archive-card archive-card--tall" data-categories="commercial public">
+            <div class="archive-card__media"><img src="/assets/project-passenger-lounge.webp" alt="SAT passenger lounge ticketing area" /></div>
+            <div class="archive-card__meta">
+              <span>08</span><div><h2>SAT Passenger Lounges</h2><p>Public · Multi-city</p></div><small>Interior Design</small>
+            </div>
+          </article>
+
+          <article class="archive-card archive-card--wide" data-categories="commercial public">
+            <div class="archive-card__media"><img src="/assets/project-water-company.webp" alt="National Water Company training building" /></div>
+            <div class="archive-card__meta">
+              <span>09</span><div><h2>National Water Company</h2><p>Public · Khamis Mushait</p></div><small>Architecture · Interior · Renovation</small>
+            </div>
+          </article>
+
+          <article class="archive-card archive-card--portrait archive-card--arch" data-categories="commercial workplace">
+            <div class="archive-card__media"><img src="/assets/project-aqualla.webp" alt="Aqualla corporate office reception" loading="lazy" decoding="async" /></div>
+            <div class="archive-card__meta">
+              <span>10</span><div><h2>Aqualla Offices</h2><p>Workplace · Riyadh</p></div><small>Interior Design</small>
+            </div>
+          </article>
+
+          <article class="archive-card archive-card--portrait" data-categories="commercial public">
+            <div class="archive-card__media"><img src="/assets/project-hospital.webp" alt="Al Hammadi Hospitals reception and approvals area" /></div>
+            <div class="archive-card__meta">
+              <span>11</span><div><h2>Al Hammadi Hospitals</h2><p>Healthcare · Riyadh</p></div><small>Interior Design Enhancement</small>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="projects-closing">
+        <div class="projects-closing__media"><img src="/assets/project-guest.webp" alt="Completed Halamesk guest house interior" /></div>
+        <div class="projects-closing__shade"></div>
+        <div class="projects-closing__copy">
+          <p>Have a space in mind?</p>
+          <h2><span>Let’s shape</span><span>what comes next.</span></h2>
+          <a href="/#contact">Start a project <i>↗</i></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Halamesk footer">
+      <div class="footer__kinetic" aria-hidden="true">
+        <span class="footer__word footer__word--trail footer__word--trail-far">HALAMESK</span>
+        <span class="footer__word footer__word--trail footer__word--trail-near">HALAMESK</span>
+        <span class="footer__word footer__word--reveal">HALAMESK</span>
+      </div>
+      <div class="footer__topline"><span>Halamesk / Riyadh</span><span>Interior · Architecture · Execution</span></div>
+      <div class="footer__grid">
+        <div class="footer__label">Explore</div>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="/"><span>Home</span><i>01</i></a>
+          <a href="/about.html"><span>About us</span><i>02</i></a>
+          <a href="/services.html"><span>Services</span><i>03</i></a>
+          <a href="/projects.html"><span>Projects</span><i>04</i></a>
+          <a href="/#contact"><span>Contact</span><i>05</i></a>
+        </nav>
+        <div class="footer__column">
+          <p>Halamesk Studio</p>
+          <a href="mailto:info@halamesk.com"><small>Email</small><span>info@halamesk.com</span></a>
+          <a href="tel:+966575646693"><small>Mobile</small><span>+966 57 564 6693</span></a>
+          <div><small>Location</small><span>Riyadh, Saudi Arabia</span></div>
+        </div>
+        <div class="footer__column footer__column--last">
+          <p>Capabilities</p><span>Interior Design</span><span>Architecture</span><span>Fit-Out & Execution</span><span>Turnkey Solutions</span>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> Halamesk</span><span>All rights reserved</span>
+        <a href="https://www.instagram.com/halamesk" rel="noreferrer" target="_blank">Instagram ↗</a><a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/projects.js"></script>
+  </body>
+</html>
