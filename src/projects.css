@@ -107,6 +107,8 @@
   align-items: start;
 }
 .archive-card { grid-column: span 6; min-width: 0; }
+.archive-card[data-project] { cursor: pointer; }
+.archive-card[data-project]:focus-visible { outline: 2px solid var(--blue); outline-offset: .5rem; }
 .archive-card--wide { grid-column: span 7; }
 .archive-card--tall,
 .archive-card--portrait { grid-column: span 5; }

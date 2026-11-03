@@ -9,6 +9,7 @@ export default defineConfig({
         about: resolve(process.cwd(), "about.html"),
         services: resolve(process.cwd(), "services.html"),
         projects: resolve(process.cwd(), "projects.html"),
+        project: resolve(process.cwd(), "project.html"),
       },
     },
   },

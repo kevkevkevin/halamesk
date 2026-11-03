@@ -11,15 +11,10 @@ const motionPreview = localPreview || new URLSearchParams(location.search).has("
 const allowsMotion = !prefersReducedMotion || motionPreview;
 if (motionPreview) document.documentElement.classList.add("motion-preview");
 const isMobile = window.matchMedia("(max-width: 800px)");
-const frameCount = 72;
-const frames = new Array(frameCount);
-const canvas = document.querySelector(".film__canvas");
-const context = canvas.getContext("2d", { alpha: false });
 const loaderCount = document.querySelector(".loader__count");
 const loaderLine = document.querySelector(".loader__line span");
 const filmProgress = document.querySelector(".film__progress");
-let loadedFrames = 0;
-let currentFrame = 0;
+const filmFrames = gsap.utils.toArray(".film-frame");
 let siteEntered = false;
 
 document.querySelector("#year").textContent = new Date().getFullYear();
@@ -35,34 +30,7 @@ lenis.on("scroll", ScrollTrigger.update);
 gsap.ticker.add((time) => lenis.raf(time * 1000));
 gsap.ticker.lagSmoothing(0);
 
-function framePath(index) {
-  return `/assets/sequence/frame-${String(index).padStart(3, "0")}.webp`;
-}
-
-function updateLoadProgress() {
-  const percent = Math.round((loadedFrames / frameCount) * 100);
-  if (!siteEntered) {
-    loaderCount.textContent = String(percent).padStart(3, "0");
-    gsap.to(loaderLine, { width: `${percent}%`, duration: .2, overwrite: true });
-  }
-}
-
-function loadFrame(index) {
-  return new Promise((resolve) => {
-    const image = new Image();
-    image.decoding = "async";
-    image.onload = image.onerror = () => {
-      loadedFrames += 1;
-      if (index === 0 || index === currentFrame) renderFrame(currentFrame);
-      updateLoadProgress();
-      resolve();
-    };
-    frames[index] = image;
-    image.src = framePath(index);
-  });
-}
-
-function preloadFrames() {
+function waitForHero() {
   const heroImage = document.querySelector(".hero__media img");
   const heroReady = heroImage?.complete ? Promise.resolve() : new Promise((resolve) => {
     if (!heroImage) { resolve(); return; }
@@ -74,73 +42,12 @@ function preloadFrames() {
     heroReady,
     new Promise((resolve) => window.setTimeout(resolve, 320)),
   ]).then(enterSite);
-
-  const prepareFilm = () => loadFrame(0).then(() => {
-    const film = document.querySelector(".film");
-    let sequenceStarted = false;
-    const startSequence = () => {
-      if (sequenceStarted) return;
-      sequenceStarted = true;
-      const queue = Array.from({ length: frameCount - 1 }, (_, index) => index + 1);
-      const loadWorker = async () => {
-        while (queue.length) {
-          const index = queue.shift();
-          await loadFrame(index);
-        }
-      };
-      Promise.all(Array.from({ length: 4 }, loadWorker));
-    };
-
-    if (!("IntersectionObserver" in window) || !film) {
-      window.setTimeout(startSequence, 2500);
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      if (!entries.some((entry) => entry.isIntersecting)) return;
-      observer.disconnect();
-      startSequence();
-    }, { rootMargin: "175% 0px" });
-    observer.observe(film);
-  });
-
-  if (document.readyState === "complete") window.setTimeout(prepareFilm, 0);
-  else window.addEventListener("load", prepareFilm, { once: true });
-}
-
-function drawCover(image) {
-  if (!image?.naturalWidth) return;
-  const ratio = Math.max(canvas.width / image.naturalWidth, canvas.height / image.naturalHeight);
-  const width = image.naturalWidth * ratio;
-  const height = image.naturalHeight * ratio;
-  context.drawImage(image, (canvas.width - width) / 2, (canvas.height - height) / 2, width, height);
-}
-
-function resizeCanvas() {
-  const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
-  canvas.width = Math.floor(canvas.clientWidth * ratio);
-  canvas.height = Math.floor(canvas.clientHeight * ratio);
-  renderFrame(currentFrame);
-}
-
-function renderFrame(index) {
-  currentFrame = Math.max(0, Math.min(frameCount - 1, Math.round(index)));
-  let image = frames[currentFrame];
-  if (!image?.naturalWidth) {
-    for (let offset = 1; offset < frameCount; offset += 1) {
-      const previous = frames[currentFrame - offset];
-      const next = frames[currentFrame + offset];
-      if (previous?.naturalWidth) { image = previous; break; }
-      if (next?.naturalWidth) { image = next; break; }
-    }
-  }
-  drawCover(image);
 }
 
 function enterSite() {
   if (siteEntered) return;
   siteEntered = true;
-  const progress = { value: Math.round((loadedFrames / frameCount) * 100) };
+  const progress = { value: 0 };
   const timeline = gsap.timeline({ defaults: { ease: "power4.inOut" } });
   timeline
     .to(progress, {
@@ -162,9 +69,7 @@ function enterSite() {
     .call(() => ScrollTrigger.refresh());
 }
 
-preloadFrames();
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+waitForHero();
 
 const progressBar = document.querySelector(".page-progress span");
 ScrollTrigger.create({
@@ -224,7 +129,6 @@ if (allowsMotion) {
     gsap.from(item, { x: 70, opacity: 0, duration: .9, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 90%" } });
   });
 
-  const frameState = { frame: 0 };
   const scenes = gsap.utils.toArray(".film-scene");
   const filmTimeline = gsap.timeline({
     scrollTrigger: {
@@ -233,8 +137,13 @@ if (allowsMotion) {
       end: "bottom bottom",
       scrub: .35,
       onUpdate: (self) => {
-        const nextFrame = Math.round(self.progress * (frameCount - 1));
-        if (nextFrame !== currentFrame) renderFrame(nextFrame);
+        const scaledProgress = self.progress * Math.max(1, filmFrames.length - 1);
+        const activeIndex = Math.min(filmFrames.length - 1, Math.floor(scaledProgress));
+        const blend = scaledProgress - activeIndex;
+        filmFrames.forEach((frame, index) => {
+          const opacity = index === activeIndex ? 1 - blend : index === activeIndex + 1 ? blend : 0;
+          gsap.set(frame, { opacity });
+        });
         filmProgress.textContent = String(Math.round(self.progress * 100)).padStart(3, "0");
       },
     },
@@ -245,8 +154,6 @@ if (allowsMotion) {
       .fromTo(scene, { opacity: 0, yPercent: 16 }, { opacity: 1, yPercent: -50, duration: .28 }, start)
       .to(scene, { opacity: 0, yPercent: -68, duration: .28 }, start + .67);
   });
-  filmTimeline.to(frameState, { frame: frameCount - 1, duration: scenes.length * 1.15, ease: "none" }, 0);
-
   const craftShots = gsap.utils.toArray(".craft-shot img");
   craftShots.forEach((image) => {
     gsap.to(image, { scale: 1, yPercent: -4, ease: "none", scrollTrigger: { trigger: image, start: "top bottom", end: "bottom top", scrub: 1 } });
@@ -390,6 +297,20 @@ createProjectScroll();
 isMobile.addEventListener("change", () => {
   createProjectScroll();
   ScrollTrigger.refresh();
+});
+
+document.querySelectorAll(".project-card[data-project]").forEach((card) => {
+  const projectName = card.querySelector("h3")?.textContent || "project";
+  const openProject = () => { location.href = `/project.html?project=${card.dataset.project}`; };
+  card.tabIndex = 0;
+  card.setAttribute("role", "link");
+  card.setAttribute("aria-label", `View ${projectName}`);
+  card.addEventListener("click", openProject);
+  card.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    openProject();
+  });
 });
 
 const menuButton = document.querySelector(".menu-toggle");

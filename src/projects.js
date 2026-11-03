@@ -87,6 +87,21 @@ const validFilters = new Set(filterButtons.map((button) => button.dataset.filter
 let activeFilter = validFilters.has(searchParams.get("filter")) ? searchParams.get("filter") : "all";
 let filterLocked = false;
 
+projectCards.forEach((card) => {
+  const projectName = card.querySelector("h2")?.textContent || "project";
+  const openProject = () => { location.href = `/project.html?project=${card.dataset.project}`; };
+  card.tabIndex = 0;
+  card.setAttribute("role", "link");
+  card.setAttribute("aria-label", `View ${projectName}`);
+  card.dataset.cursor = "View";
+  card.addEventListener("click", openProject);
+  card.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    openProject();
+  });
+});
+
 function cardMatches(card, filter) {
   return filter === "all" || card.dataset.categories.split(" ").includes(filter);
 }
@@ -365,6 +380,13 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     moveX(event.clientX);
     moveY(event.clientY);
     gsap.to(cursor, { opacity: 1, duration: .25 });
+  });
+  document.querySelectorAll("[data-cursor]").forEach((target) => {
+    target.addEventListener("pointerenter", () => {
+      cursor.querySelector("span").textContent = target.dataset.cursor;
+      gsap.to(cursor, { scale: 1, duration: .4, ease: "back.out(1.8)" });
+    });
+    target.addEventListener("pointerleave", () => gsap.to(cursor, { scale: .25, duration: .35 }));
   });
 }
 

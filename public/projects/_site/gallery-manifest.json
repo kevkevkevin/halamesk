@@ -1,0 +1,270 @@
+{
+  "restaurant": {
+    "count": 6,
+    "sources": [
+      "hospitality/restaurant 1/A3 Signed conv 2.webp",
+      "hospitality/restaurant 1/A3 Signed conv 3.webp",
+      "hospitality/restaurant 1/A3 Signed conv 1.webp",
+      "hospitality/restaurant 1/A3 Signed conv 7.webp",
+      "hospitality/restaurant 1/A3 Signed conv 6.webp",
+      "hospitality/restaurant 1/A3 Signed conv 9.webp"
+    ]
+  },
+  "alwaha-villa": {
+    "count": 6,
+    "sources": [
+      "residential/Alwaha Villa/3D shots/Ext Rev 5 conv/Ext Rev 5 conv 4.webp",
+      "residential/Alwaha Villa/3D shots/Ext Rev 5 conv/Ext Rev 5 conv 8.webp",
+      "residential/Alwaha Villa/3D shots/eXT 7-2 conv 5.webp",
+      "residential/Alwaha Villa/3D shots/eXT 7-2 conv 4.webp",
+      "residential/Alwaha Villa/3D shots/01 First Floor/MASTER BATHROOM conv/MASTER BATHROOM conv 6.webp",
+      "residential/Alwaha Villa/3D shots/01 First Floor/MASTER BATHROOM conv/MASTER BATHROOM conv 3.webp"
+    ]
+  },
+  "saptco-hub": {
+    "count": 6,
+    "sources": [
+      "commercial/SAPTCO HUB/SaptcoHUBFinal-03-3343410.webp",
+      "commercial/SAPTCO HUB/SaptcoHUBFinal-013-3348262.webp",
+      "commercial/SAPTCO HUB/SaptcoHUBFinal-011-3347668.webp",
+      "commercial/SAPTCO HUB/SaptcoHUBFinal-012-3347268.webp",
+      "commercial/SAPTCO HUB/SaptcoHUBFinal-02-3342870.webp",
+      "commercial/SAPTCO HUB/SaptcoHUBFinal-01-3342867.webp"
+    ]
+  },
+  "almalga-villa": {
+    "count": 6,
+    "sources": [
+      "residential/Almalga Villa/E F G P 1 conv/E F G P 1 conv 6.webp",
+      "residential/Almalga Villa/B1 conv/B1 conv 5.webp",
+      "residential/Almalga Villa/A conv/A conv 1.webp",
+      "residential/Almalga Villa/B1 conv/B1 conv 3.webp",
+      "residential/Almalga Villa/A conv/A conv 2.webp",
+      "residential/Almalga Villa/E F G P 1 conv/E F G P 1 conv 1.webp"
+    ]
+  },
+  "nwc-operation-control": {
+    "count": 6,
+    "sources": [
+      "commercial/Operation Control Center for NWC in Khamis Mushait/Exterior/Profile/z1 (5).webp",
+      "commercial/Operation Control Center for NWC in Khamis Mushait/Exterior/Profile/z1 (3).webp",
+      "commercial/Operation Control Center for NWC in Khamis Mushait/Interior/MEETING ROOM/4.webp",
+      "commercial/Operation Control Center for NWC in Khamis Mushait/Interior/MEETING ROOM/7.webp",
+      "commercial/Operation Control Center for NWC in Khamis Mushait/Interior/OCC/6.webp",
+      "commercial/Operation Control Center for NWC in Khamis Mushait/Interior/OCC/8.webp"
+    ]
+  },
+  "alyaqout-villa": {
+    "count": 6,
+    "sources": [
+      "residential/Alyaqout jeddah villa/Render 06/0- Majlis/1.webp",
+      "residential/Alyaqout jeddah villa/Render 06/2- First Floor Hall/05.webp",
+      "residential/Alyaqout jeddah villa/Render 06/1- Family Hall/ki (1).webp",
+      "residential/Alyaqout jeddah villa/Render 06/1- Family Hall/ki (2).webp",
+      "residential/Alyaqout jeddah villa/Render 06/2- First Floor Hall/01.webp",
+      "residential/Alyaqout jeddah villa/Render 06/0- Majlis/2.webp"
+    ]
+  },
+  "alhammadi-hospital": {
+    "count": 6,
+    "sources": [
+      "commercial/Alhammadi Hospital/14.webp",
+      "commercial/Alhammadi Hospital/9.webp",
+      "commercial/Alhammadi Hospital/13.webp",
+      "commercial/Alhammadi Hospital/ChatGPT Image Jul 15, 2026, 10_30_49 PM.webp",
+      "commercial/Alhammadi Hospital/ChatGPT Image Jul 15, 2026, 10_37_39 PM.webp",
+      "commercial/Alhammadi Hospital/ChatGPT Image Jul 15, 2026, 10_31_09 PM.webp"
+    ]
+  },
+  "alhamra-villa": {
+    "count": 6,
+    "sources": [
+      "residential/Alhamra Villa/Nawaf/NAWAF1-7.webp",
+      "residential/Alhamra Villa/Retal/RETAL (1)-3.webp",
+      "residential/Alhamra Villa/Retal/RETAL (1)-6.webp",
+      "residential/Alhamra Villa/Master/master-5.webp",
+      "residential/Alhamra Villa/Master/master-2.webp",
+      "residential/Alhamra Villa/Nawaf/NAWAF1-2.webp"
+    ]
+  },
+  "sat-terminal": {
+    "count": 5,
+    "sources": [
+      "commercial/SAT/SAT OPD 01 conv 1.webp",
+      "commercial/SAT/SAT OPD 01 conv 5.webp",
+      "commercial/SAT/SAT OPD 01 conv 4.webp",
+      "commercial/SAT/SAT OPD 01 conv 3.webp",
+      "commercial/SAT/SAT OPD 01 conv 2.webp"
+    ]
+  },
+  "albasatin-villa": {
+    "count": 6,
+    "sources": [
+      "residential/Albasatin villa Jeddah/Render Submission 3 conv 12.webp",
+      "residential/Albasatin villa Jeddah/Render Submission 3 conv 3.webp",
+      "residential/Albasatin villa Jeddah/Render Submission 3 conv 13.webp",
+      "residential/Albasatin villa Jeddah/Render Submission 3 conv 4.webp",
+      "residential/Albasatin villa Jeddah/Render Submission 3 conv 2.webp",
+      "residential/Albasatin villa Jeddah/Render Submission 3 conv 11.webp"
+    ]
+  },
+  "aquakia-offices": {
+    "count": 6,
+    "sources": [
+      "commercial/Aquakia/2- Manager Office/2.webp",
+      "commercial/Aquakia/2- Manager Office/3.webp",
+      "commercial/Aquakia/12- Meeting Room/1.webp",
+      "commercial/Aquakia/11- Ladies Office/2.webp",
+      "commercial/Aquakia/12- Meeting Room/2.webp",
+      "commercial/Aquakia/3- Office 1/2.webp"
+    ]
+  },
+  "alnarjis-villa": {
+    "count": 6,
+    "sources": [
+      "residential/Alnarjis villa/Render 03/4.webp",
+      "residential/Alnarjis villa/Render 03/9.webp",
+      "residential/Alnarjis villa/IMG-20250614-WA0018.webp",
+      "residential/Alnarjis villa/ChatGPT Image Jun 18, 2026, 11_25_53 PM.webp",
+      "residential/Alnarjis villa/Render 03/10.webp",
+      "residential/Alnarjis villa/Render 03/6.webp"
+    ]
+  },
+  "saptco-ceo-office": {
+    "count": 3,
+    "sources": [
+      "commercial/SAPTCO CEO/20250508_095526.webp",
+      "commercial/SAPTCO CEO/SaptcoOffice-1-3139802.webp",
+      "commercial/SAPTCO CEO/SaptcoOffice-2-3144596.webp"
+    ]
+  },
+  "living-room-jeddah": {
+    "count": 6,
+    "sources": [
+      "residential/Living room Jed/2.webp",
+      "residential/Living room Jed/6.webp",
+      "residential/Living room Jed/5.webp",
+      "residential/Living room Jed/4.webp",
+      "residential/Living room Jed/1.webp",
+      "residential/Living room Jed/3.webp"
+    ]
+  },
+  "nwc-training-center": {
+    "count": 6,
+    "sources": [
+      "commercial/Training Center for NWC in Abha/Interior/IMG-20240531-WA0047.webp",
+      "commercial/Training Center for NWC in Abha/Interior/Profile/RESTAURANT.webp",
+      "commercial/Training Center for NWC in Abha/Exterior/1.webp",
+      "commercial/Training Center for NWC in Abha/Exterior/2.webp",
+      "commercial/Training Center for NWC in Abha/Interior/Profile/2f.webp",
+      "commercial/Training Center for NWC in Abha/Interior/IMG-20240531-WA0046.webp"
+    ]
+  },
+  "alquds-villa": {
+    "count": 5,
+    "sources": [
+      "residential/Alquds Villa/20230531_165427.webp",
+      "residential/Alquds Villa/20230531_165422.webp",
+      "residential/Alquds Villa/20200811_181939.webp",
+      "residential/Alquds Villa/ChatGPT Image Jun 21, 2026, 01_56_20 PM.webp",
+      "residential/Alquds Villa/ChatGPT Image Jun 21, 2026, 05_23_31 PM.webp"
+    ]
+  },
+  "sat-jeddah": {
+    "count": 4,
+    "sources": [
+      "commercial/SAT JEDDAH/PC conv 1.webp",
+      "commercial/SAT JEDDAH/PC conv 4.webp",
+      "commercial/SAT JEDDAH/PC conv 2.webp",
+      "commercial/SAT JEDDAH/PC conv 3.webp"
+    ]
+  },
+  "alworood-villa": {
+    "count": 6,
+    "sources": [
+      "residential/Alworood Villa/file_00000000907481f4903efd45a5d1a479.webp",
+      "residential/Alworood Villa/Alworood villa design Image[20].webp",
+      "residential/Alworood Villa/\u0648\u0627\u062c\u0647\u0629.webp",
+      "residential/Alworood Villa/IMG-20260708-WA0003.webp",
+      "residential/Alworood Villa/dresser.webp",
+      "residential/Alworood Villa/IMG-20260708-WA0006.webp"
+    ]
+  },
+  "abha": {
+    "count": 6,
+    "sources": [
+      "commercial/Abha/IMG-20240519-WA0059.webp",
+      "commercial/Abha/IMG-20240519-WA0065.webp",
+      "commercial/Abha/IMG-20240519-WA0066.webp",
+      "commercial/Abha/IMG-20240519-WA0057.webp",
+      "commercial/Abha/IMG-20240519-WA0062.webp",
+      "commercial/Abha/IMG-20240519-WA0069.webp"
+    ]
+  },
+  "obhor-villa": {
+    "count": 5,
+    "sources": [
+      "residential/Obhor Villa Jeddah/file_000000009d5081f48c544b0960c1814b.webp",
+      "residential/Obhor Villa Jeddah/ChatGPT Image Jun 21, 2026, 12_33_04 PM.webp",
+      "residential/Obhor Villa Jeddah/ChatGPT Image Sep 11, 2026, 11_51_25 PM.webp",
+      "residential/Obhor Villa Jeddah/ChatGPT Image Sep 26, 2026, 01_05_01 AM.webp",
+      "residential/Obhor Villa Jeddah/ChatGPT Image Jun 20, 2026, 01_32_16 PM.webp"
+    ]
+  },
+  "sat-najran": {
+    "count": 6,
+    "sources": [
+      "commercial/SAT NAJRAN/ChatGPT Image Sep 24, 2026, 04_59_32 PM (4).webp",
+      "commercial/SAT NAJRAN/\u062a\u0639\u062f\u064a\u0644 \u0627\u0644\u0645\u0648\u0642\u0639 \u0627\u0644\u0639\u0627\u0645 \u0645\u062d\u0637\u0629 \u0646\u062c\u0631\u0627\u0646 conv 1.webp",
+      "commercial/SAT NAJRAN/ChatGPT Image Sep 24, 2026, 04_59_33 PM (6).webp",
+      "commercial/SAT NAJRAN/ChatGPT Image Sep 24, 2026, 04_59_30 PM (2).webp",
+      "commercial/SAT NAJRAN/ChatGPT Image Sep 24, 2026, 04_59_31 PM (3).webp",
+      "commercial/SAT NAJRAN/ChatGPT Image Sep 24, 2026, 04_59_32 PM (5).webp"
+    ]
+  },
+  "girls-bedroom": {
+    "count": 5,
+    "sources": [
+      "residential/Girls' Bedroom/JANA & SALWAN-4.webp",
+      "residential/Girls' Bedroom/JANA & SALWAN-2.webp",
+      "residential/Girls' Bedroom/JANA & SALWAN-1.webp",
+      "residential/Girls' Bedroom/JANA & SALWAN-5.webp",
+      "residential/Girls' Bedroom/JANA & SALWAN-3.webp"
+    ]
+  },
+  "sat-bus-stop": {
+    "count": 1,
+    "sources": [
+      "commercial/SAT BUS STOP/2023-10-15 at 11.50.00_ec7df1a8.webp"
+    ]
+  },
+  "interior-design": {
+    "count": 6,
+    "sources": [
+      "residential/Interior Design/2 (2).webp",
+      "residential/Interior Design/4 (2).webp",
+      "residential/Interior Design/6 (2).webp",
+      "residential/Interior Design/3 (1).webp",
+      "residential/Interior Design/1 (2).webp",
+      "residential/Interior Design/5 (2).webp"
+    ]
+  },
+  "aram-villa": {
+    "count": 2,
+    "sources": [
+      "residential/Aram Villa Jeddah/ChatGPT Image Sep 26, 2026, 01_01_22 AM-1.webp",
+      "residential/Aram Villa Jeddah/ChatGPT Image Sep 26, 2026, 01_01_23 AM-2.webp"
+    ]
+  },
+  "alaqiq-villa": {
+    "count": 6,
+    "sources": [
+      "residential/Alaqiq Villa/IMG-20260429-WA0067.webp",
+      "residential/Alaqiq Villa/IMG-20260121-WA0040.webp",
+      "residential/Alaqiq Villa/ChatGPT Image Jun 19, 2026, 12_26_51 AM.webp",
+      "residential/Alaqiq Villa/ChatGPT Image Jun 19, 2026, 12_16_47 AM.webp",
+      "residential/Alaqiq Villa/ChatGPT Image Sep 24, 2026, 10_58_23 PM-10.webp",
+      "residential/Alaqiq Villa/ChatGPT Image Sep 24, 2026, 10_58_16 PM-6.webp"
+    ]
+  }
+}

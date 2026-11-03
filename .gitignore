@@ -3,3 +3,9 @@ dist
 tmp
 .DS_Store
 *.log
+
+# Keep the full-resolution source project library local. The website uses the
+# curated, web-optimized derivatives in public/projects/_site.
+public/projects/*
+!public/projects/_site/
+!public/projects/_site/**
