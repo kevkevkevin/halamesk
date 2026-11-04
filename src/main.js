@@ -64,7 +64,7 @@ function enterSite() {
     .to(".loader", { clipPath: "inset(0 0 100% 0)", duration: .72 })
     .from(".hero__media img", { scale: 1.24, duration: 1.15 }, "-=.58")
     .from(".hero-line i", { yPercent: 115, duration: .78, stagger: .085 }, "-=.92")
-    .from(".hero .eyebrow span, .hero__topline, .scroll-cue, .hero__arabic", { opacity: 0, y: 13, duration: .52, stagger: .045 }, "-=.52")
+    .from(".hero .eyebrow span, .hero__actions a, .hero__footer > *", { opacity: 0, y: 13, duration: .52, stagger: .055 }, "-=.52")
     .set(".loader", { display: "none" })
     .call(() => ScrollTrigger.refresh());
 }
