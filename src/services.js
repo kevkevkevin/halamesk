@@ -103,8 +103,6 @@ function setupFooterMotion() {
     velocityY: 0,
   };
 
-  gsap.set([footerWord, footerTrailNear, footerTrailFar], { xPercent: -50, yPercent: -50 });
-
   const update = (event) => {
     const bounds = footerWord.getBoundingClientRect();
     const localX = event.clientX - bounds.left;
