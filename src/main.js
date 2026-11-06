@@ -78,61 +78,15 @@ ScrollTrigger.create({
   onUpdate: (self) => gsap.set(progressBar, { scaleX: self.progress }),
 });
 
-if (allowsMotion) {
-  gsap.to(".hero__media img", {
-    scale: 1.2,
-    yPercent: 7,
-    ease: "none",
-    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
-  });
-  gsap.to(".hero__copy", {
-    yPercent: 32,
-    opacity: 0,
-    ease: "none",
-    scrollTrigger: { trigger: ".hero", start: "top top", end: "78% top", scrub: true },
-  });
-
-  gsap.utils.toArray(".split-reveal").forEach((element) => {
-    gsap.from(element, {
-      y: 70,
-      opacity: 0,
-      duration: 1.25,
-      ease: "power4.out",
-      scrollTrigger: { trigger: element, start: "top 84%" },
-    });
-  });
-
-  gsap.to(".expand-media", {
-    width: "100vw",
-    height: "100svh",
-    borderRadius: "0% 0% 0% 0%",
-    ease: "none",
-    scrollTrigger: { trigger: ".expand-media", start: "center bottom", end: "center center", scrub: 1 },
-  });
-  gsap.to(".expand-media img", {
-    scale: 1,
-    ease: "none",
-    scrollTrigger: { trigger: ".expand-media", start: "top bottom", end: "bottom top", scrub: 1 },
-  });
-
-  gsap.utils.toArray(".image-shift").forEach((wrap) => {
-    const image = wrap.querySelector("img");
-    const direction = wrap.dataset.direction === "right" ? 1 : -1;
-    gsap.fromTo(image, { xPercent: direction * -10 }, {
-      xPercent: direction * 5,
-      ease: "none",
-      scrollTrigger: { trigger: wrap, start: "top bottom", end: "bottom top", scrub: 1 },
-    });
-  });
-
-  gsap.utils.toArray(".service-list article").forEach((item) => {
-    gsap.from(item, { x: 70, opacity: 0, duration: .9, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 90%" } });
-  });
-
+function createScrollFilm() {
+  const film = document.querySelector(".film");
   const scenes = gsap.utils.toArray(".film-scene");
+  if (!film || !filmProgress || !filmFrames.length || !scenes.length) return;
+
   const filmTimeline = gsap.timeline({
     scrollTrigger: {
-      trigger: ".film",
+      id: "scroll-film",
+      trigger: film,
       start: "top top",
       end: "bottom bottom",
       scrub: .35,
@@ -148,25 +102,25 @@ if (allowsMotion) {
       },
     },
   });
+
   scenes.forEach((scene, index) => {
     const start = index * 1.15;
-    filmTimeline
-      .fromTo(scene, { opacity: 0, yPercent: 16 }, { opacity: 1, yPercent: -50, duration: .28 }, start)
-      .to(scene, { opacity: 0, yPercent: -68, duration: .28 }, start + .67);
+    const enterFrom = prefersReducedMotion ? { opacity: 0 } : { opacity: 0, yPercent: 16 };
+    const enterTo = prefersReducedMotion ? { opacity: 1, duration: .28 } : { opacity: 1, yPercent: -50, duration: .28 };
+    const exitTo = prefersReducedMotion ? { opacity: 0, duration: .28 } : { opacity: 0, yPercent: -68, duration: .28 };
+    filmTimeline.fromTo(scene, enterFrom, enterTo, start).to(scene, exitTo, start + .67);
   });
-  const craftShots = gsap.utils.toArray(".craft-shot img");
-  craftShots.forEach((image) => {
-    gsap.to(image, { scale: 1, yPercent: -4, ease: "none", scrollTrigger: { trigger: image, start: "top bottom", end: "bottom top", scrub: 1 } });
-  });
-  gsap.from(".craft__stat strong", { textContent: 0, duration: 2, snap: { textContent: 1 }, scrollTrigger: { trigger: ".craft__stat", start: "top 80%" } });
+}
 
-  gsap.to(".contact__backdrop img", { scale: 1, yPercent: 5, ease: "none", scrollTrigger: { trigger: ".contact", start: "top bottom", end: "bottom top", scrub: 1 } });
-  gsap.from(".contact h2 span", { yPercent: 110, opacity: 0, duration: 1.1, stagger: .12, ease: "power4.out", scrollTrigger: { trigger: ".contact h2", start: "top 82%" } });
+function createFooterReveal() {
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
   const footer = document.querySelector(".site-footer");
-  const footerWord = footer.querySelector(".footer__word--reveal");
-  const footerTrailNear = footer.querySelector(".footer__word--trail-near");
-  const footerTrailFar = footer.querySelector(".footer__word--trail-far");
+  const footerWord = footer?.querySelector(".footer__word--reveal");
+  const footerTrailNear = footer?.querySelector(".footer__word--trail-near");
+  const footerTrailFar = footer?.querySelector(".footer__word--trail-far");
+  if (!footer || !footerWord || !footerTrailNear || !footerTrailFar) return;
+
   const footerMotion = {
     reveal: 0,
     revealTarget: 0,
@@ -222,7 +176,6 @@ if (allowsMotion) {
 
   footer.addEventListener("mouseenter", updateFooterReveal);
   footer.addEventListener("mousemove", updateFooterReveal);
-
   footer.addEventListener("mouseleave", () => {
     if (footerMotion.insideWord) {
       footerMotion.targetX += Math.max(-120, Math.min(120, footerMotion.velocityX * 9));
@@ -259,6 +212,70 @@ if (allowsMotion) {
     footerTrailNear.style.opacity = footerMotion.reveal * .13;
     footerTrailFar.style.opacity = footerMotion.reveal * .065;
   });
+}
+
+createScrollFilm();
+createFooterReveal();
+
+if (allowsMotion) {
+  gsap.to(".hero__media img", {
+    scale: 1.2,
+    yPercent: 7,
+    ease: "none",
+    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
+  });
+  gsap.to(".hero__copy", {
+    yPercent: 32,
+    opacity: 0,
+    ease: "none",
+    scrollTrigger: { trigger: ".hero", start: "top top", end: "78% top", scrub: true },
+  });
+
+  gsap.utils.toArray(".split-reveal").forEach((element) => {
+    gsap.from(element, {
+      y: 70,
+      opacity: 0,
+      duration: 1.25,
+      ease: "power4.out",
+      scrollTrigger: { trigger: element, start: "top 84%" },
+    });
+  });
+
+  gsap.to(".expand-media", {
+    width: "100vw",
+    height: "100svh",
+    borderRadius: "0% 0% 0% 0%",
+    ease: "none",
+    scrollTrigger: { trigger: ".expand-media", start: "center bottom", end: "center center", scrub: 1 },
+  });
+  gsap.to(".expand-media img", {
+    scale: 1,
+    ease: "none",
+    scrollTrigger: { trigger: ".expand-media", start: "top bottom", end: "bottom top", scrub: 1 },
+  });
+
+  gsap.utils.toArray(".image-shift").forEach((wrap) => {
+    const image = wrap.querySelector("img");
+    const direction = wrap.dataset.direction === "right" ? 1 : -1;
+    gsap.fromTo(image, { xPercent: direction * -10 }, {
+      xPercent: direction * 5,
+      ease: "none",
+      scrollTrigger: { trigger: wrap, start: "top bottom", end: "bottom top", scrub: 1 },
+    });
+  });
+
+  gsap.utils.toArray(".service-list article").forEach((item) => {
+    gsap.from(item, { x: 70, opacity: 0, duration: .9, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 90%" } });
+  });
+
+  const craftShots = gsap.utils.toArray(".craft-shot img");
+  craftShots.forEach((image) => {
+    gsap.to(image, { scale: 1, yPercent: -4, ease: "none", scrollTrigger: { trigger: image, start: "top bottom", end: "bottom top", scrub: 1 } });
+  });
+  gsap.from(".craft__stat strong", { textContent: 0, duration: 2, snap: { textContent: 1 }, scrollTrigger: { trigger: ".craft__stat", start: "top 80%" } });
+
+  gsap.to(".contact__backdrop img", { scale: 1, yPercent: 5, ease: "none", scrollTrigger: { trigger: ".contact", start: "top bottom", end: "bottom top", scrub: 1 } });
+  gsap.from(".contact h2 span", { yPercent: 110, opacity: 0, duration: 1.1, stagger: .12, ease: "power4.out", scrollTrigger: { trigger: ".contact h2", start: "top 82%" } });
 
   gsap.from(".footer__grid > *, .footer__bottom > *", {
     y: 28,

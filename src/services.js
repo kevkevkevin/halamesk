@@ -221,6 +221,7 @@ function setupServiceShowcase() {
 }
 
 setupServiceShowcase();
+setupFooterMotion();
 
 if (allowsMotion) {
   gsap.to(".services-hero__media img", {
@@ -302,7 +303,6 @@ if (allowsMotion) {
     scrollTrigger: { trigger: ".service-closing h2", start: "top 82%" },
   });
 
-  setupFooterMotion();
   gsap.from(".footer__grid > *, .footer__bottom > *", {
     y: 28,
     opacity: 0,

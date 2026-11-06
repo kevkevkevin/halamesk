@@ -654,6 +654,4 @@ button { color: inherit; font: inherit; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
   .cursor { display: none; }
   .whatsapp-fab::before { animation: none; }
-  html:not(.motion-preview) .footer__word--reveal,
-  html:not(.motion-preview) .footer__word--trail { display: none; }
 }

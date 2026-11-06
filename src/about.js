@@ -178,6 +178,8 @@ function setupFooterMotion() {
   });
 }
 
+setupFooterMotion();
+
 if (allowsMotion) {
   gsap.to(".about-hero__media img", {
     scale: 1.2,
@@ -303,7 +305,6 @@ if (allowsMotion) {
     scrollTrigger: { trigger: ".about-closing h2", start: "top 82%" },
   });
 
-  setupFooterMotion();
   gsap.from(".footer__grid > *, .footer__bottom > *", {
     y: 28,
     opacity: 0,
