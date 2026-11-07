@@ -307,6 +307,7 @@ button { color: inherit; font: inherit; }
   position: relative;
   z-index: 1;
   overflow: hidden;
+  direction: ltr;
 }
 .client-marquee__viewport::before,
 .client-marquee__viewport::after {
@@ -320,8 +321,8 @@ button { color: inherit; font: inherit; }
 }
 .client-marquee__viewport::before { left: 0; background: linear-gradient(90deg, var(--paper), transparent); }
 .client-marquee__viewport::after { right: 0; background: linear-gradient(-90deg, var(--paper), transparent); }
-.client-marquee__track { display: flex; width: max-content; will-change: transform; }
-.client-marquee__group { display: flex; flex: none; }
+.client-marquee__track { display: flex; width: max-content; direction: ltr; will-change: transform; }
+.client-marquee__group { display: flex; flex: none; direction: ltr; }
 .client-logo {
   width: clamp(10.5rem, 17vw, 15rem);
   aspect-ratio: 1;
@@ -428,8 +429,8 @@ button { color: inherit; font: inherit; }
 .projects { background: var(--paper); overflow: clip; }
 .projects__intro { padding-bottom: 8vw; }
 .projects__intro h2 { max-width: 78rem; margin-top: 8vw; }
-.projects-stage { position: relative; height: 100svh; padding: 5.5rem 0 3rem; overflow: hidden; background: var(--paper); }
-.projects-track { display: flex; gap: clamp(1.2rem, 2.5vw, 3rem); width: max-content; height: calc(100% - 2rem); padding: 0 var(--pad); }
+.projects-stage { position: relative; height: 100svh; padding: 5.5rem 0 3rem; overflow: hidden; background: var(--paper); direction: ltr; }
+.projects-track { display: flex; gap: clamp(1.2rem, 2.5vw, 3rem); width: max-content; height: calc(100% - 2rem); padding: 0 var(--pad); direction: ltr; }
 .project-card { width: min(72vw, 72rem); height: 100%; flex: 0 0 auto; }
 .project-card[data-project] { cursor: pointer; }
 .project-card[data-project]:focus-visible { outline: 2px solid var(--blue); outline-offset: .45rem; }

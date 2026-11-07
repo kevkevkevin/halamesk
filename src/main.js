@@ -218,8 +218,13 @@ function createClientMarquee() {
   const track = section?.querySelector(".client-marquee__track");
   if (!section || !track) return;
 
-  const marquee = gsap.fromTo(track, { xPercent: -50 }, {
-    xPercent: 0,
+  // Keep the loop geometry physical (LTR) and choose its visual travel here.
+  // Letting `dir="rtl"` reverse both the flex track and this transform creates
+  // a double mirror and a visible jump at the repeat seam.
+  const marqueeStart = isArabic ? 0 : -50;
+  const marqueeEnd = isArabic ? -50 : 0;
+  const marquee = gsap.fromTo(track, { xPercent: marqueeStart }, {
+    xPercent: marqueeEnd,
     duration: 30,
     repeat: -1,
     ease: "none",
@@ -337,6 +342,7 @@ function createProjectScroll() {
   if (isMobile.matches) return;
   const track = document.querySelector(".projects-track");
   const stage = document.querySelector(".projects-stage");
+  if (!track || !stage) return;
   const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
   gsap.to(track, {
     x: () => -distance(),
