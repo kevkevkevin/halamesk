@@ -1,5 +1,6 @@
 import "./style.css";
 import "./project.css";
+import { isArabic, localizeProject, withLanguage } from "./i18n.js";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -14,14 +15,16 @@ const motionPreview = localPreview || searchParams.has("motion-preview");
 const allowsMotion = !prefersReducedMotion || motionPreview;
 if (motionPreview) document.documentElement.classList.add("motion-preview");
 
-const project = getProject(searchParams.get("project"));
-const projectIndex = projects.findIndex((item) => item.slug === project.slug);
-const nextProject = projects[(projectIndex + 1) % projects.length];
-const heroImage = galleryImage(project.slug, 1);
+const sourceProject = getProject(searchParams.get("project"));
+const projectIndex = projects.findIndex((item) => item.slug === sourceProject.slug);
+const sourceNextProject = projects[(projectIndex + 1) % projects.length];
+const project = localizeProject(sourceProject);
+const nextProject = localizeProject(sourceNextProject);
+const heroImage = galleryImage(sourceProject.slug, 1);
 
-document.title = `${project.name} — Halamesk`;
+document.title = `${project.name} — ${isArabic ? "هالامسك" : "Halamesk"}`;
 document.querySelector('meta[name="description"]').content = project.description;
-document.querySelector('meta[property="og:title"]').content = `${project.name} — Halamesk`;
+document.querySelector('meta[property="og:title"]').content = `${project.name} — ${isArabic ? "هالامسك" : "Halamesk"}`;
 document.querySelector('meta[property="og:description"]').content = project.description;
 document.querySelector('meta[property="og:image"]').content = heroImage;
 document.querySelector("#year").textContent = new Date().getFullYear();
@@ -42,13 +45,13 @@ const galleryLayouts = ["wide", "portrait", "offset", "large", "portrait", "wide
 for (let index = 1; index <= project.galleryCount; index += 1) {
   const figure = document.createElement("figure");
   figure.className = `detail-gallery__item detail-gallery__item--${galleryLayouts[index - 1]}`;
-  figure.dataset.cursor = "View";
+  figure.dataset.cursor = isArabic ? "عرض" : "View";
 
   const media = document.createElement("div");
   media.className = "detail-gallery__media";
   const image = document.createElement("img");
-  image.src = galleryImage(project.slug, index);
-  image.alt = `${project.name} — selected view ${String(index).padStart(2, "0")}`;
+  image.src = galleryImage(sourceProject.slug, index);
+  image.alt = isArabic ? `${project.name} — لقطة مختارة ${String(index).padStart(2, "0")}` : `${project.name} — selected view ${String(index).padStart(2, "0")}`;
   image.loading = index === 1 ? "eager" : "lazy";
   image.decoding = "async";
   media.append(image);
@@ -60,11 +63,11 @@ for (let index = 1; index <= project.galleryCount; index += 1) {
 }
 
 const nextLink = document.querySelector("[data-next-link]");
-nextLink.href = `/project.html?project=${nextProject.slug}`;
+nextLink.href = withLanguage(`/project.html?project=${sourceNextProject.slug}`);
 document.querySelector("[data-next-name]").textContent = nextProject.name;
 document.querySelector("[data-next-meta]").textContent = `${nextProject.category} · ${nextProject.location}`;
 const nextImage = document.querySelector("[data-next-image]");
-nextImage.src = galleryImage(nextProject.slug, 1);
+nextImage.src = galleryImage(sourceNextProject.slug, 1);
 nextImage.alt = `${nextProject.name} by Halamesk`;
 
 const lenis = new Lenis({

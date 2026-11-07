@@ -1,4 +1,5 @@
 import "./style.css";
+import { isArabic, withLanguage } from "./i18n.js";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -361,10 +362,10 @@ isMobile.addEventListener("change", () => {
 
 document.querySelectorAll(".project-card[data-project]").forEach((card) => {
   const projectName = card.querySelector("h3")?.textContent || "project";
-  const openProject = () => { location.href = `/project.html?project=${card.dataset.project}`; };
+  const openProject = () => { location.href = withLanguage(`/project.html?project=${card.dataset.project}`); };
   card.tabIndex = 0;
   card.setAttribute("role", "link");
-  card.setAttribute("aria-label", `View ${projectName}`);
+  card.setAttribute("aria-label", isArabic ? `عرض ${projectName}` : `View ${projectName}`);
   card.addEventListener("click", openProject);
   card.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" && event.key !== " ") return;

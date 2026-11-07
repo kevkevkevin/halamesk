@@ -1,0 +1,88 @@
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.3rem;
+  padding: .58rem .82rem;
+  border-radius: 999px;
+  color: rgba(255,255,255,.84);
+  font-family: "IBM Plex Sans Arabic", "Manrope", sans-serif;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  transition: color .35s ease, background .35s ease;
+}
+.language-switch:hover { color: var(--ink); background: rgba(255,255,255,.88); }
+.language-switch--mobile { display: none; }
+
+html[dir="rtl"] body {
+  font-family: "IBM Plex Sans Arabic", "Manrope", "Helvetica Neue", Arial, sans-serif;
+  text-align: right;
+}
+html[dir="rtl"] .brand img { object-position: right center; }
+html[dir="rtl"] .site-header { padding: .55rem 1rem .55rem .6rem; }
+html[dir="rtl"] .header-cta { padding: .34rem 1rem .34rem .36rem; }
+html[dir="rtl"] .header-cta i::before { content: "↖"; }
+html[dir="rtl"] .page-progress span { transform-origin: right; }
+html[dir="rtl"] .section-index,
+html[dir="rtl"] .client-marquee__header,
+html[dir="rtl"] .footer__topline,
+html[dir="rtl"] .footer__bottom { letter-spacing: 0; text-transform: none; }
+html[dir="rtl"] .eyebrow,
+html[dir="rtl"] .site-nav a,
+html[dir="rtl"] .header-cta,
+html[dir="rtl"] .hero-button,
+html[dir="rtl"] .text-link,
+html[dir="rtl"] .project-filter,
+html[dir="rtl"] .detail-hero__scroll,
+html[dir="rtl"] .about-hero__scroll,
+html[dir="rtl"] .services-hero__scroll,
+html[dir="rtl"] .projects-hero__scroll { letter-spacing: 0; text-transform: none; }
+html[dir="rtl"] .display-title,
+html[dir="rtl"] .hero h1,
+html[dir="rtl"] .about-hero__copy h1,
+html[dir="rtl"] .services-hero__copy h1,
+html[dir="rtl"] .projects-hero__copy h1,
+html[dir="rtl"] .detail-hero__copy h1,
+html[dir="rtl"] .about-display,
+html[dir="rtl"] .services-display,
+html[dir="rtl"] .projects-display,
+html[dir="rtl"] .detail-intro h2 { letter-spacing: -.035em; line-height: 1.03; }
+html[dir="rtl"] .about-hero__line--indent,
+html[dir="rtl"] .services-hero__line--indent,
+html[dir="rtl"] .projects-hero__line--indent { padding-right: 11vw; padding-left: 0; }
+html[dir="rtl"] .services-hero__line--indent,
+html[dir="rtl"] .projects-hero__line--indent { padding-right: 15vw; }
+html[dir="rtl"] .about-hero__scroll,
+html[dir="rtl"] .services-hero__scroll,
+html[dir="rtl"] .projects-hero__scroll { right: var(--pad); left: auto; }
+html[dir="rtl"] .detail-hero__scroll { right: auto; left: var(--pad); }
+html[dir="rtl"] .footer__bottom a:last-child { justify-self: start; }
+html[dir="rtl"] .whatsapp-fab__copy { text-align: right; }
+html[dir="rtl"] .section-index > [lang="ar"],
+html[dir="rtl"] .service-list__ar,
+html[dir="rtl"] .service-chapter__arabic,
+html[dir="rtl"] .services-hero__arabic,
+html[dir="rtl"] .about-principles i,
+html[dir="rtl"] .about-reasons i,
+html[dir="rtl"] .service-process__list i,
+html[dir="rtl"] .service-sectors__arabic { display: none; }
+
+@media (max-width: 800px) {
+  .language-switch { display: none; }
+  .language-switch--mobile {
+    display: inline-flex;
+    width: max-content;
+    margin: 2rem 0 0;
+    padding: .65rem 1.15rem;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.28);
+    font-size: .9rem !important;
+    letter-spacing: 0 !important;
+  }
+  html[dir="rtl"] .site-header { padding: .46rem .82rem .46rem .5rem; }
+  html[dir="rtl"] .about-hero__line--indent,
+  html[dir="rtl"] .services-hero__line--indent,
+  html[dir="rtl"] .projects-hero__line--indent { padding-right: 0; }
+  html[dir="rtl"] .mobile-menu nav a { letter-spacing: -.035em; }
+}
