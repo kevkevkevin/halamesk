@@ -310,6 +310,7 @@ const translations = new Map(Object.entries({
   "Selected views": "لقطات مختارة",
   "Gallery": "المعرض",
   "Images": "الصور",
+  "/ Images": "/ الصور",
   "Next project": "المشروع التالي"
 }));
 
