@@ -212,8 +212,53 @@ function createFooterReveal() {
   });
 }
 
+function createClientMarquee() {
+  const section = document.querySelector(".client-marquee");
+  const track = section?.querySelector(".client-marquee__track");
+  if (!section || !track) return;
+
+  const marquee = gsap.fromTo(track, { xPercent: -50 }, {
+    xPercent: 0,
+    duration: 30,
+    repeat: -1,
+    ease: "none",
+  });
+  let direction = 1;
+
+  ScrollTrigger.create({
+    id: "client-marquee-direction",
+    start: 0,
+    end: "max",
+    onUpdate: (self) => {
+      const nextDirection = self.direction === -1 ? -1 : 1;
+      if (nextDirection === direction) return;
+      direction = nextDirection;
+      gsap.to(marquee, { timeScale: direction, duration: .5, ease: "power2.out", overwrite: true });
+    },
+  });
+
+  gsap.fromTo(section, {
+    autoAlpha: 0,
+    y: prefersReducedMotion ? 0 : 38,
+  }, {
+    autoAlpha: 1,
+    y: 0,
+    duration: prefersReducedMotion ? .01 : 1.05,
+    ease: "power3.out",
+    scrollTrigger: { trigger: section, start: "top 88%", once: true },
+  });
+
+  const pause = () => gsap.to(marquee, { timeScale: 0, duration: .35, ease: "power2.out", overwrite: true });
+  const resume = () => gsap.to(marquee, { timeScale: direction, duration: .45, ease: "power2.out", overwrite: true });
+  section.addEventListener("mouseenter", pause);
+  section.addEventListener("mouseleave", resume);
+  section.addEventListener("focusin", pause);
+  section.addEventListener("focusout", resume);
+}
+
 createScrollFilm();
 createFooterReveal();
+createClientMarquee();
 
 if (allowsMotion) {
   gsap.to(".hero__media img", {
