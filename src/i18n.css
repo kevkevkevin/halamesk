@@ -40,16 +40,26 @@ html[dir="rtl"] .detail-hero__scroll,
 html[dir="rtl"] .about-hero__scroll,
 html[dir="rtl"] .services-hero__scroll,
 html[dir="rtl"] .projects-hero__scroll { letter-spacing: 0; text-transform: none; }
-html[dir="rtl"] .display-title,
-html[dir="rtl"] .hero h1,
-html[dir="rtl"] .about-hero__copy h1,
-html[dir="rtl"] .services-hero__copy h1,
-html[dir="rtl"] .projects-hero__copy h1,
-html[dir="rtl"] .detail-hero__copy h1,
-html[dir="rtl"] .about-display,
-html[dir="rtl"] .services-display,
-html[dir="rtl"] .projects-display,
-html[dir="rtl"] .detail-intro h2 { letter-spacing: -.035em; line-height: 1.03; }
+
+/* Arabic glyphs need taller line boxes than the Latin display treatment. */
+html[dir="rtl"] h1,
+html[dir="rtl"] h2 {
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+html[dir="rtl"] h3 {
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+html[dir="rtl"] .split-reveal { overflow: visible; }
+html[dir="rtl"] .hero-line,
+html[dir="rtl"] .about-hero__copy h1 > span,
+html[dir="rtl"] .services-hero__copy h1 > span,
+html[dir="rtl"] .projects-hero__copy h1 > span {
+  height: 1.38em;
+}
+html[dir="rtl"] .footer__nav a,
+html[dir="rtl"] .mobile-menu nav a { line-height: 1.35; }
 html[dir="rtl"] .about-hero__line--indent,
 html[dir="rtl"] .services-hero__line--indent,
 html[dir="rtl"] .projects-hero__line--indent { padding-right: 11vw; padding-left: 0; }
